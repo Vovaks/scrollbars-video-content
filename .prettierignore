@@ -1,0 +1,40 @@
+# Build output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/coverage
+
+# Dependencies
+/node_modules
+
+# Angular
+/.angular
+
+# IDE files
+.vscode/
+.idea/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Documentation
+CHANGELOG.md
+LICENSE
+README.md
+
+# Package files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files (if they contain sensitive data)
+.env
+.env.local
+.env.production
+
+# Configuration files that should keep their format
+.editorconfig
+.browserslistrc
+karma.conf.js
