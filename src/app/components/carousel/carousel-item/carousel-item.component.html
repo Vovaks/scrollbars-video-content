@@ -1,0 +1,12 @@
+<div class="carousel-item">
+  <a [routerLink]="['/content', item.fancyUrl]">
+    <img
+      class="item-image"
+      decoding="async"
+      loading="lazy"
+      [alt]="item.heading"
+      [src]="item.verticalPhotos[0]?.photoTypes['60']?.url"
+      (load)="item.loaded = true"
+    />
+  </a>
+</div>

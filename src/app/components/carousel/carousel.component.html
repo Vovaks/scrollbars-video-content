@@ -1,0 +1,37 @@
+<!-- eslint-disable @angular-eslint/template/prefer-control-flow -->
+<!-- eslint-disable @angular-eslint/template/use-track-by-function -->
+<div class="carousel-container">
+  <h2 class="carousel-header">{{ header }}</h2>
+  <div class="carousel-wrapper">
+    <button
+      aria-label="Previous slide"
+      class="nav-button prev"
+      type="submit"
+      [disabled]="!canGoPrev()"
+      (click)="prevSlide()"
+    >
+      <svg height="24" viewBox="0 0 24 24" width="24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+      </svg>
+    </button>
+
+    <div
+      class="carousel-track"
+      [style.transform]="'translateX(' + translateX + '%)'"
+    >
+      <app-carousel-item *ngFor="let item of items" [item]="item" />
+    </div>
+
+    <button
+      aria-label="Next slide"
+      class="nav-button next"
+      type="submit"
+      [disabled]="!canGoNext()"
+      (click)="nextSlide()"
+    >
+      <svg height="24" viewBox="0 0 24 24" width="24">
+        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+      </svg>
+    </button>
+  </div>
+</div>
