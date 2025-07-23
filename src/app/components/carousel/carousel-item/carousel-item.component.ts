@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './carousel-item.component.html',
-  styleUrls: ['./carousel-item.component.scss']
+  styleUrls: ['./carousel-item.component.scss'],
 })
 export class CarouselItemComponent {
   @Input() item: any;

@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselItemComponent } from './carousel-item/carousel-item.component';
+import { CarouselItem } from '../../models/carousel.models';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +17,7 @@ import { CarouselItemComponent } from './carousel-item/carousel-item.component';
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
-  @Input() items: any[] = [];
+  @Input() items: CarouselItem[] = [];
   @Input() header = '';
   currentIndex = 0;
 

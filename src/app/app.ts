@@ -1,8 +1,4 @@
-import {
-  Component,
-  OnInit,
-  TrackByFunction,
-} from '@angular/core';
+import { Component, OnInit, TrackByFunction } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HttpService } from './service/http.service';

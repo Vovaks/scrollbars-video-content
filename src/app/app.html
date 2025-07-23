@@ -2,9 +2,9 @@
 <div class="app-container">
   <h1>Jupiter Scrollbars!</h1>
   <!-- <pre>{{ carousels | json }}</pre> -->
-<app-carousel
-  *ngFor="let carousel of carousels; trackBy: trackByCarousel"
-  [header]="carousel.header"
-  [items]="carousel.data"
-/>
+  <app-carousel
+    *ngFor="let carousel of carousels; trackBy: trackByCarousel"
+    [header]="carousel.header"
+    [items]="carousel.data"
+  />
 </div>
