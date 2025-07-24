@@ -23,7 +23,6 @@ export class App implements OnInit {
   ngOnInit(): void {
     this.httpService.getCategoryData().subscribe({
       next: (response: CategoryResponse) => {
-        console.log('Category data fetched successfully:', response);
         this.carousels = response.data.category.frontPage.filter(
           (section: CarouselSection) =>
             section.data &&
