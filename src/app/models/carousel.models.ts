@@ -12,17 +12,28 @@ export type CarouselSection = {
   highTimeline: boolean;
 };
 
+export type PhotoType = {
+  url: string;
+};
+
+export type PhotoTypes = {
+  [type: string]: PhotoType;
+};
+
+export type VerticalPhoto = {
+  photoTypes: PhotoTypes;
+};
+
 export type CarouselItem = {
+  id: number;
+  link: string;
+  alt: string;
+  img: string;
   heading: string;
   subHeading: string;
   fancyUrl: string;
+  canonicalUrl: string;
   verticalPhotos: {
-    [key: string]: {
-      photoTypes: {
-        [key: string]: {
-          url: string;
-        };
-      };
-    };
+    [index: number]: VerticalPhoto;
   };
 };

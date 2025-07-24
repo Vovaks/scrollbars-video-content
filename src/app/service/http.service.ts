@@ -17,6 +17,6 @@ export class HttpService {
         tap(() => (this.cache$ = null)), // Clear cache on error or after use if needed
       );
     }
-    return this.cache$ || of({ data: { category: { frontPage: [] } } }); // Fallback
+    return this.cache$ || of({ data: { category: { frontPage: [] } } });
   }
 }
