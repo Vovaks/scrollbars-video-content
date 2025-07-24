@@ -1,7 +1,6 @@
 <!-- eslint-disable @angular-eslint/template/prefer-control-flow -->
 <div class="app-container">
-  <h1>Jupiter Scrollbars!</h1>
-  <!-- <pre>{{ carousels | json }}</pre> -->
+  <h1>Jupiter Scrollbars</h1>
   <app-carousel
     *ngFor="let carousel of carousels; trackBy: trackByCarousel"
     [header]="carousel.header"

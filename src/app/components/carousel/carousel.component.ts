@@ -23,16 +23,42 @@ export class CarouselComponent implements OnInit {
 
   currentIndex = 0;
   translateX = 0;
+  vhValue = 0;
+  sizesAttr = '';
+  nextOffsetVw = 0;
 
-  slideWidthPercent = 100 / this.visibleCount();
+  ngOnInit(): void {
+    this.updateTranslateX();
+    this.sizesAttr = this.generateSizesAttr();
+  }
 
-  sizesAttr = `
-  (min-width: 1920px) calc((100vw - 60px - 24px - (7 * (0.3vw + 4px))) / 7),
-  (min-width: 1280px) and (max-width: 1919.99px) calc((100vw - 60px - 24px - (6 * (0.3vw + 4px))) / 6),
-  (min-width: 960px) and (max-width: 1279.99px) calc((100vw - 60px - 24px - (4 * (0.3vw + 4px))) / 4),
-  (min-width: 600px) and (max-width: 959.99px) calc((100vw - 60px - 24px - (3 * (0.3vw + 4px))) / 3),
-  (max-width: 599.99px) calc((100vw - 60px - 12px - (2 * (0.3vw + 4px))) / 2)
-`;
+  @HostListener('window:resize')
+  onResize(): void {
+    this.updateTranslateX();
+  }
+
+  private generateSizesAttr(): string {
+    const configs = [
+      { min: 1920, max: null, count: 7 },
+      { min: 1280, max: 1919.99, count: 6 },
+      { min: 960, max: 1279.99, count: 4 },
+      { min: 600, max: 959.99, count: 3 },
+      { min: 0, max: 599.99, count: 2 },
+    ];
+
+    const gapVw = '0.3vw';
+
+    return configs
+      .map(({ min, max, count }) => {
+        const media = max
+          ? `(min-width: ${min}px) and (max-width: ${max}px)`
+          : `(min-width: ${min}px)`;
+        const gaps = `${count} * (${gapVw} ) + 4px`;
+        const totalPadding = `8vw`;
+        return `${media} calc((100vw - ${totalPadding} - (${gaps})) / ${count})`;
+      })
+      .join(',\n');
+  }
 
   visibleCount(): number {
     const w = window.innerWidth;
@@ -51,9 +77,22 @@ export class CarouselComponent implements OnInit {
     return 2;
   }
 
+  private getSlideWidthPx(count: number): number {
+    const vw = window.innerWidth;
+    const padding = (4 / 100) * vw;
+    const gap = ((count * 0.3) / 100) * vw;
+    const containerWidth = vw - padding - gap;
+    return containerWidth / count;
+  }
+
   updateTranslateX(): void {
+    const vw = window.innerWidth;
     const count = this.visibleCount();
-    this.translateX = -this.currentIndex * (94 / count);
+    const slideWidth = this.getSlideWidthPx(count);
+
+    const baseTranslateXPx = -this.currentIndex * slideWidth;
+    const totalGapBeforeCurrent = ((this.currentIndex * 0.39) / 100) * vw;
+    this.translateX = baseTranslateXPx + totalGapBeforeCurrent;
   }
 
   canGoPrev(): boolean {
@@ -80,15 +119,6 @@ export class CarouselComponent implements OnInit {
     if (this.currentIndex > this.items.length - count) {
       this.currentIndex = this.items.length - count;
     }
-    this.updateTranslateX();
-  }
-
-  @HostListener('window:resize')
-  onResize(): void {
-    this.updateTranslateX();
-  }
-
-  ngOnInit(): void {
     this.updateTranslateX();
   }
 }
