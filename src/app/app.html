@@ -1,6 +1,8 @@
 <!-- eslint-disable @angular-eslint/template/prefer-control-flow -->
 <div class="app-container">
-  <h1>Video Scrollbars</h1>
+  <div class="header">
+    <h1>Video Scrollbars</h1>
+  </div>
   <app-carousel
     *ngFor="let carousel of carousels; trackBy: trackByCarousel"
     [header]="carousel.header"

@@ -1,7 +1,35 @@
 .app-container {
   margin: 0 auto;
 
+  .header {
+    min-height: 4.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 599px) {
+      display: none;
+    }
+  }
+
   h1 {
-    text-align: center;
+    height: 3.5rem;
+    padding: 2rem;
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 1rem;
+    background: linear-gradient(90deg, #a5d8ff, #60a5fa, #a5d8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(100, 180, 255, 0.5);
+    
+    @media (max-width: 900px) {
+      font-size: 3.2rem;
+      margin: 0.5rem;
+      padding: 1.5rem;
+    }
   }
 }
