@@ -13,9 +13,9 @@ export class HttpService {
 
   getCategoryData(): Observable<CategoryResponse> {
     if (!this.cache$) {
-      this.cache$ = this.http.get<CategoryResponse>(this.apiUrl).pipe(
-        tap(() => (this.cache$ = null)), // Clear cache on error or after use if needed
-      );
+      this.cache$ = this.http
+        .get<CategoryResponse>(this.apiUrl)
+        .pipe(tap(() => (this.cache$ = null)));
     }
     return this.cache$ || of({ data: { category: { frontPage: [] } } });
   }
