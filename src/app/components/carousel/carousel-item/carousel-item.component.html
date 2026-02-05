@@ -2,10 +2,11 @@
 @if (item()) {
   <div class="carousel-item">
     <a [routerLink]="['/', item().canonicalUrl]">
+      <div class="image-placeholder shimmer"></div>
       <img
         class="item-image"
         decoding="async"
-        loading="eager"
+        loading="lazy"
         [alt]="item().heading"
         [sizes]="sizes()"
         [src]="item().verticalPhotos[0].photoTypes['60'].url"
