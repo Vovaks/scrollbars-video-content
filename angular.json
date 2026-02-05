@@ -17,10 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "baseHref": "/scrollbars-video-content/",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -100,6 +97,9 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

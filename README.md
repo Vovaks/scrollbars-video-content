@@ -31,7 +31,15 @@ However, on slow connections (3G/Edge) and/or low-powered devices, loading can f
 - npm install
 - npm start
 
+##  🚀 angular-cli-ghpages is ready!
+    
+    
+      1. Docs: https://github.com/angular-schule/angular-cli-ghpages
+      2. Deploy via: ng deploy
+      3. site: https://vovaks.github.io/scrollbars-video-content/
+
 ## Screenshots
 
 ### Desktop view
-![Desktop main page](.github/images/scrennshot_desctop_video_scrollbars_1.png)
+![Desktop main page](.github/images/scrennshot_desctop_video_scrollbars.png)
+
