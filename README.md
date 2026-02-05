@@ -30,3 +30,8 @@ However, on slow connections (3G/Edge) and/or low-powered devices, loading can f
 ## Start 🧩
 - npm install
 - npm start
+
+## Screenshots
+
+### Desktop view
+![Desktop main page](.github/images/scrennshot_desctop_video_scrollbars.png)
